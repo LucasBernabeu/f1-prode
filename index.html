@@ -1,106 +1,90 @@
 <!DOCTYPE html>
-<html lang="es-AR">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prode F1 - Inicio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        main {
-            padding: 20px;
-        }
-        .boton-calendario {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007bff;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            margin-top: 20px;
-        }
-        .boton-calendario:hover {
-            background-color: #0056b3;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-    </style>
+    <title>Prode F1 2025</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Prode F1: Lucas vs Pablo</h1>
-    </header>
-    <main>
-        <h2>Bienvenidos al Prode de F1</h2>
-        <p>Compite prediciendo los resultados de la Fórmula 1.</p>
-        <a href="calendario.html" class="boton-calendario">Ver Calendario de Carreras</a>
-        <h2>Puntaje Actual</h2>
-        <table>
+    <!-- Botón para abrir el menú lateral -->
+    <span id="menuBtn" onclick="openNav()">&#9776;</span>
+
+    <!-- Menú lateral -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#calendario">Calendario</a>
+        <a href="#puntos">Puntos</a>
+        <a href="#reglas">Reglas</a>
+    </div>
+
+    <!-- Contenido principal -->
+    <div id="main">
+        <h1>Prode F1 2025</h1>
+
+        <!-- Tabla de puntajes -->
+        <table class="score-table">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Puntos</th>
+                    <th>Participante</th>
+                    <th>Puntaje</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>Lucas</td>
-                    <td id="lucas-puntos">Cargando...</td>
+                    <td id="lucasScore">0</td>
                 </tr>
                 <tr>
                     <td>Pablo</td>
-                    <td id="pablo-puntos">Cargando...</td>
+                    <td id="pabloScore">0</td>
                 </tr>
             </tbody>
         </table>
-    </main>
+
+        <!-- Sección de próxima carrera -->
+        <div class="next-race">
+            <h2>Próxima Carrera</h2>
+            <p id="nextRaceInfo">Información no disponible</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script>
-        // Función para cargar los puntajes desde el archivo JSON
-        async function cargarPuntajes() {
-            try {
-                const response = await fetch('puntajes.json');
-                if (!response.ok) {
-                    throw new Error('No se pudo cargar el archivo JSON');
-                }
-                const puntajes = await response.json();
-                document.getElementById('lucas-puntos').textContent = puntajes.Lucas;
-                document.getElementById('pablo-puntos').textContent = puntajes.Pablo;
-            } catch (error) {
-                console.error('Error al cargar los puntajes:', error);
-                document.getElementById('lucas-puntos').textContent = 'Error';
-                document.getElementById('pablo-puntos').textContent = 'Error';
-            }
+        // Funciones para abrir y cerrar el menú lateral
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
         }
 
-        // Llamar a la función para cargar los puntajes al cargar la página
-        window.onload = cargarPuntajes;
+        // Simulación de datos (estos datos se obtendrán de Google Sheets en el futuro)
+        const scores = {
+            lucas: 120,
+            pablo: 115
+        };
+        const nextRace = {
+            name: "Gran Premio de Australia",
+            date: "15 de marzo de 2025"
+        };
+
+        // Función para actualizar la tabla de puntajes
+        function updateScores() {
+            document.getElementById("lucasScore").textContent = scores.lucas;
+            document.getElementById("pabloScore").textContent = scores.pablo;
+        }
+
+        // Función para actualizar la información de la próxima carrera
+        function updateNextRace() {
+            document.getElementById("nextRaceInfo").textContent = `${nextRace.name} - ${nextRace.date}`;
+        }
+
+        // Llamada a las funciones de actualización al cargar la página
+        document.addEventListener("DOMContentLoaded", () => {
+            updateScores();
+            updateNextRace();
+        });
     </script>
 </body>
 </html>
