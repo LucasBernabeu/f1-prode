@@ -7,36 +7,48 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <h1>Prode F1 2025</h1>
+    <!-- Menú Lateral Desplegable -->
+    <div id="menuLateral" class="menu-lateral">
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="puntos.html">Puntos</a></li>
             </ul>
         </nav>
-    </header>
-    <main>
-        <h2>Tabla de Puntajes</h2>
-        <table id="puntajesTabla">
-            <thead>
-                <tr>
-                    <th>Participante</th>
-                    <th>Puntaje Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Lucas</td>
-                    <td id="puntajeLucas">0</td>
-                </tr>
-                <tr>
-                    <td>Pablo</td>
-                    <td id="puntajePablo">0</td>
-                </tr>
-            </tbody>
-        </table>
-    </main>
+    </div>
+
+    <!-- Contenedor Principal -->
+    <div id="contenedorPrincipal" class="contenedor-principal">
+        <!-- Botón para abrir el menú -->
+        <button id="btnMenu" class="btn-menu">&#9776;</button>
+
+        <!-- Contenido Principal -->
+        <header>
+            <h1>Prode F1 2025</h1>
+        </header>
+        <main>
+            <h2>Tabla de Puntajes</h2>
+            <table id="puntajesTabla">
+                <thead>
+                    <tr>
+                        <th>Participante</th>
+                        <th>Puntaje Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lucas</td>
+                        <td id="puntajeLucas">0</td>
+                    </tr>
+                    <tr>
+                        <td>Pablo</td>
+                        <td id="puntajePablo">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+
     <script src="javascript/main.js"></script>
 </body>
 </html>
