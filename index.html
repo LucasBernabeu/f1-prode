@@ -136,5 +136,27 @@
             </ul>
         </div>
     </main>
+
+    <script>
+        // Función para cargar los puntajes desde el archivo JSON
+        async function cargarPuntajes() {
+            try {
+                const response = await fetch('puntajes.json');
+                if (!response.ok) {
+                    throw new Error('No se pudo cargar el archivo JSON');
+                }
+                const puntajes = await response.json();
+                document.getElementById('lucas-puntos').textContent = puntajes.Lucas;
+                document.getElementById('pablo-puntos').textContent = puntajes.Pablo;
+            } catch (error) {
+                console.error('Error al cargar los puntajes:', error);
+                document.getElementById('lucas-puntos').textContent = 'Error';
+                document.getElementById('pablo-puntos').textContent = 'Error';
+            }
+        }
+
+        // Llamar a la función para cargar los puntajes al cargar la página
+        window.onload = cargarPuntajes;
+    </script>
 </body>
 </html>
