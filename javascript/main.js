@@ -1,43 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var publicSpreadsheetUrl = 'URL_DE_TU_HOJA_DE_CALCULO_PUBLICADA';
+    // Verificar si estamos en la página de puntos o en la página principal
+    if (window.location.pathname.includes('puntos.html')) {
+        // Página de puntos: manejar el formulario
+        const form = document.getElementById('puntajesForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
 
-    Tabletop.init({
-        key: publicSpreadsheetUrl,
-        simpleSheet: true,
-        callback: function(data) {
-            var puntajesTotales = calcularPuntajesTotales(data);
-            actualizarTablaPuntajes(puntajesTotales);
-        }
-    });
-});
+            const lucasPuntajes = document.getElementById('lucas').value.split(',').map(Number);
+            const pabloPuntajes = document.getElementById('pablo').value.split(',').map(Number);
 
-function calcularPuntajesTotales(data) {
-    return data.map(function(participante) {
-        var total = 0;
-        for (var i = 1; i <= 24; i++) {
-            total += parseInt(participante['Carrera ' + i]) || 0;
-        }
-        return {
-            nombre: participante.Participante,
-            puntajeTotal: total
-        };
-    });
-}
-
-function actualizarTablaPuntajes(puntajes) {
-    var tbody = document.querySelector('.score-table tbody');
-    tbody.innerHTML = ''; // Limpiar contenido existente
-
-    puntajes.forEach(function(participante) {
-        var fila = document.createElement('tr');
-        var celdaNombre = document.createElement('td');
-        var celdaPuntaje = document.createElement('td');
-
-        celdaNombre.textContent = participante.nombre;
-        celdaPuntaje.textContent = participante.puntajeTotal;
-
-        fila.appendChild(celdaNombre);
-        fila.appendChild(celdaPuntaje);
-        tbody.appendChild(fila);
-    });
-}
+            if (lucasPuntajes.length === 24 && pabloPuntajes.length === 24) {
+                localStorage.setItem('lucasPuntajes', JSON.stringify(lucasPuntajes));
+                localStorage.setItem('pabloPuntajes', JSON.stringify(pabloPuntajes));
+                alert('Puntajes guardados exitosamente.');
+            } else {
+                alert('Por favor, ingrese exactamente 24 puntajes para cada participante.');
+            }
+        });
+    } else if (window.location.pathname.includes('index.html')) {
+        // Página
+::contentReference[oaicite:0]{index=0}
+ 
