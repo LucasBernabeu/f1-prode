@@ -30,7 +30,7 @@
             margin-bottom: 8px;
             font-weight: bold;
         }
-        input, select, button {
+        input {
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
@@ -40,10 +40,21 @@
             color: white;
             border: none;
             cursor: pointer;
+            padding: 10px 20px;
             border-radius: 5px;
         }
         button:hover {
             background-color: #005f99;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #007acc;
+        }
+        a:hover {
+            color: #005f99;
         }
     </style>
 </head>
@@ -53,7 +64,7 @@
     </header>
     <main>
         <form>
-            <h2>Predicciones para el Gran Premio de [Nombre de la carrera]</h2>
+            <h2 id="titulo-carrera">Predicciones para el Gran Premio</h2>
 
             <label for="lucas-primero">Primer puesto (Lucas):</label>
             <input type="text" id="lucas-primero" placeholder="Ejemplo: Max Verstappen" required>
@@ -85,5 +96,12 @@
         </form>
         <a href="index.html">Volver al inicio</a>
     </main>
+
+    <script>
+        // Leer el parámetro 'carrera' de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const carrera = urlParams.get('carrera') || 'Gran Premio';
+        document.getElementById('titulo-carrera').innerText = `Predicciones para el ${carrera}`;
+    </script>
 </body>
 </html>
