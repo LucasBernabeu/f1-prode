@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,12 +13,12 @@
     <!-- Menú lateral -->
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#calendario">Calendario</a>
-        <a href="#puntos">Puntos</a>
+        <a href="index.html">Inicio</a>
+        <a href="puntos.html">Puntos</a>
         <a href="#reglas">Reglas</a>
     </div>
 
-    <!-- Contenido principal -->
+    <!-- Contenedor principal -->
     <div id="main">
         <h1>Prode F1 2025</h1>
 
@@ -88,3 +88,96 @@
     </script>
 </body>
 </html>
+3. Creación de puntos.html:
+
+Crea una nueva página llamada puntos.html que contenga una tabla editable para ingresar los puntajes de Lucas y Pablo en las 24 carreras. Aquí tienes un ejemplo de cómo estructurarla:
+
+html
+Copiar código
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puntos - Prode F1 2025</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Botón para abrir el menú lateral -->
+    <span id="menuBtn" onclick="openNav()">&#9776;</span>
+
+    <!-- Menú lateral -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Inicio</a>
+        <a href="puntos.html">Puntos</a>
+        <a href="#reglas">Reglas</a>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div id="main">
+        <h1>Puntos - Prode F1 2025</h1>
+
+        <!-- Tabla de puntajes -->
+        <table class="score-table">
+            <thead>
+                <tr>
+                    <th>Carrera</th>
+                    <th>Lucas</th>
+                    <th>Pablo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filas de carreras -->
+                <tr>
+                    <td>Gran Premio de Australia</td>
+                    <td><input type="number" id="lucasGP1" value="0"></td>
+                    <td><input type="number" id="pabloGP1" value="0"></td>
+                </tr>
+                <!-- Repite las filas anteriores para cada carrera -->
+                <!-- ... -->
+            </tbody>
+        </table>
+
+        <!-- Botón para guardar cambios -->
+        <button onclick="saveScores()">Guardar Puntajes</button>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Funciones para abrir y cerrar el menú lateral
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        // Función para guardar los puntajes
+        function saveScores() {
+            const scores = {
+                lucas: 0,
+                pablo: 0
+            };
+
+            // Sumar los puntajes de Lucas
+            for (let i = 1; i <= 24; i++) {
+                scores.lucas += parseInt(document.getElementById(`lucasGP${i}`).value) || 0;
+            }
+
+            // Sumar los puntajes de Pablo
+            for (let i = 1; i <=
+::contentReference[oaicite:0]{index=0}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
