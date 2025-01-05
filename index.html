@@ -1,54 +1,90 @@
 <!DOCTYPE html>
-<html lang="es-AR">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prode F1 2025</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Menú Lateral Desplegable -->
-    <div id="menuLateral" class="menu-lateral">
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="puntos.html">Puntos</a></li>
-            </ul>
-        </nav>
+    <!-- Botón para abrir el menú lateral -->
+    <span id="menuBtn" onclick="openNav()">&#9776;</span>
+
+    <!-- Menú lateral -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#calendario">Calendario</a>
+        <a href="#puntos">Puntos</a>
+        <a href="#reglas">Reglas</a>
     </div>
 
-    <!-- Contenedor Principal -->
-    <div id="contenedorPrincipal" class="contenedor-principal">
-        <!-- Botón para abrir el menú -->
-        <button id="btnMenu" class="btn-menu">&#9776;</button>
+    <!-- Contenido principal -->
+    <div id="main">
+        <h1>Prode F1 2025</h1>
 
-        <!-- Contenido Principal -->
-        <header>
-            <h1>Prode F1 2025</h1>
-        </header>
-        <main>
-            <h2>Tabla de Puntajes</h2>
-            <table id="puntajesTabla">
-                <thead>
-                    <tr>
-                        <th>Participante</th>
-                        <th>Puntaje Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Lucas</td>
-                        <td id="puntajeLucas">0</td>
-                    </tr>
-                    <tr>
-                        <td>Pablo</td>
-                        <td id="puntajePablo">0</td>
-                    </tr>
-                </tbody>
-            </table>
-        </main>
+        <!-- Tabla de puntajes -->
+        <table class="score-table">
+            <thead>
+                <tr>
+                    <th>Participante</th>
+                    <th>Puntaje</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Lucas</td>
+                    <td id="lucasScore">0</td>
+                </tr>
+                <tr>
+                    <td>Pablo</td>
+                    <td id="pabloScore">0</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Sección de próxima carrera -->
+        <div class="next-race">
+            <h2>Próxima Carrera</h2>
+            <p id="nextRaceInfo">Información no disponible</p>
+        </div>
     </div>
 
-    <script src="javascript/main.js"></script>
+    <!-- Scripts -->
+    <script>
+        // Funciones para abrir y cerrar el menú lateral
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        // Simulación de datos (estos datos se obtendrán de Google Sheets en el futuro)
+        const scores = {
+            lucas: 120,
+            pablo: 115
+        };
+        const nextRace = {
+            name: "Gran Premio de Australia",
+            date: "15 de marzo de 2025"
+        };
+
+        // Función para actualizar la tabla de puntajes
+        function updateScores() {
+            document.getElementById("lucasScore").textContent = scores.lucas;
+            document.getElementById("pabloScore").textContent = scores.pablo;
+        }
+
+        // Función para actualizar la información de la próxima carrera
+        function updateNextRace() {
+            document.getElementById("nextRaceInfo").textContent = `${nextRace.name} - ${nextRace.date}`;
+        }
+
+        // Llamada a las funciones de actualización al cargar la página
+        document.addEventListener("DOMContentLoaded", () => {
+            updateScores();
+            updateNextRace();
+        });
+    </script>
 </body>
 </html>
