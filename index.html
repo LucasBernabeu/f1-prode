@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-AR">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,12 +13,12 @@
     <!-- Menú lateral -->
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="index.html">Inicio</a>
-        <a href="puntos.html">Puntos</a>
+        <a href="#calendario">Calendario</a>
+        <a href="#puntos">Puntos</a>
         <a href="#reglas">Reglas</a>
     </div>
 
-    <!-- Contenedor principal -->
+    <!-- Contenido principal -->
     <div id="main">
         <h1>Prode F1 2025</h1>
 
@@ -59,31 +59,22 @@
             document.getElementById("mySidenav").style.width = "0";
         }
 
-        // Simulación de datos (estos datos se obtendrán de Google Sheets en el futuro)
-        const scores = {
-            lucas: 120,
-            pablo: 115
-        };
-        const nextRace = {
-            name: "Gran Premio de Australia",
-            date: "15 de marzo de 2025"
-        };
-
-        // Función para actualizar la tabla de puntajes
-        function updateScores() {
-            document.getElementById("lucasScore").textContent = scores.lucas;
-            document.getElementById("pabloScore").textContent = scores.pablo;
+        // Función para cargar los puntajes desde el archivo JSON
+        function loadScores() {
+            fetch('puntajes.json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('lucasScore').textContent = data.lucas;
+                    document.getElementById('pabloScore').textContent = data.pablo;
+                })
+                .catch(error => {
+                    console.error('Error al cargar los puntajes:', error);
+                });
         }
 
-        // Función para actualizar la información de la próxima carrera
-        function updateNextRace() {
-            document.getElementById("nextRaceInfo").textContent = `${nextRace.name} - ${nextRace.date}`;
-        }
-
-        // Llamada a las funciones de actualización al cargar la página
-        document.addEventListener("DOMContentLoaded", () => {
-            updateScores();
-            updateNextRace();
+        // Llamada a la función de carga al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            loadScores();
         });
     </script>
 </body>
