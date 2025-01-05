@@ -1,142 +1,86 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prode F1 - Lucas vs Pablo</title>
+    <title>Prode F1 - Inicio</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
         }
         header {
-            background-color: #007acc;
-            color: white;
-            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
             text-align: center;
         }
         main {
             padding: 20px;
         }
+        .boton-calendario {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        .boton-calendario:hover {
+            background-color: #0056b3;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-top: 20px;
         }
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
-            text-align: center;
+            text-align: left;
         }
         th {
-            background-color: #007acc;
-            color: white;
+            background-color: #f2f2f2;
         }
-        .carreras {
-            margin-top: 40px;
-        }
-        .carreras h3 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .carreras ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .carreras li {
-            margin: 5px;
-        }
-        .carreras a {
-            display: block;
-            padding: 10px 15px;
-            background-color: #007acc;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-        }
-        .carreras a:hover {
-            background-color: #005f99;
-        }
-        .links {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .links a {
-            color: #007acc;
-            text-decoration: none;
-        }
-        .links a:hover {
-            color: #005f99;
+        tr:hover {
+            background-color: #f5f5f5;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Prode F1: Lucas vs Pablo</h1>
-        <p>¡Compite prediciendo los resultados de la Fórmula 1!</p>
     </header>
     <main>
+        <h2>Bienvenidos al Prode de F1</h2>
+        <p>Compite prediciendo los resultados de la Fórmula 1.</p>
+        <a href="calendario.html" class="boton-calendario">Ver Calendario de Carreras</a>
         <h2>Puntaje Actual</h2>
         <table>
-            <tr>
-                <th>Nombre</th>
-                <th>Puntos</th>
-            </tr>
-            <tr>
-                <td>Lucas</td>
-                <td id="lucas-puntos">Cargando...</td>
-            </tr>
-            <tr>
-                <td>Pablo</td>
-                <td id="pablo-puntos">Cargando...</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Puntos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Lucas</td>
+                    <td id="lucas-puntos">Cargando...</td>
+                </tr>
+                <tr>
+                    <td>Pablo</td>
+                    <td id="pablo-puntos">Cargando...</td>
+                </tr>
+            </tbody>
         </table>
-
-        <div class="links">
-            <a href="reglas.html">Reglas y Sistema de Puntaje</a>
-            <a href="calendario.html">Calendario Completo</a>
-            <a href="historial.html">Historial de Carreras y Puntos</a>
-        </div>
-
-        <div class="carreras">
-            <h3>Calendario de Carreras</h3>
-            <ul>
-                <li><a href="predicciones.html?carrera=GP%20de%20Australia">Gran Premio de Australia</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Japón">Gran Premio de Japón</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20España">Gran Premio de España</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Canadá">Gran Premio de Canadá</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Brasil">Gran Premio de Brasil</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Mónaco">Gran Premio de Mónaco</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Italia">Gran Premio de Italia</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Alemania">Gran Premio de Alemania</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Reino%20Unido">Gran Premio de Reino Unido</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Estados%20Unidos">Gran Premio de Estados Unidos</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20México">Gran Premio de México</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Argentina">Gran Premio de Argentina</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Francia">Gran Premio de Francia</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Sudáfrica">Gran Premio de Sudáfrica</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Bélgica">Gran Premio de Bélgica</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Austria">Gran Premio de Austria</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Portugal">Gran Premio de Portugal</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Turquía">Gran Premio de Turquía</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20China">Gran Premio de China</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Rusia">Gran Premio de Rusia</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Singapur">Gran Premio de Singapur</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Malasia">Gran Premio de Malasia</a></li>
-                <li><a href="predicciones.html?carrera=GP%20de%20Hungría">Gran Premio de Hungría</a></li>
-            </ul>
-        </div>
     </main>
-
     <script>
         // Función para cargar los puntajes desde el archivo JSON
         async function cargarPuntajes() {
