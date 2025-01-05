@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresar Predicciones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007acc;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #007acc;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #005f99;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ingresar Predicciones</h1>
+    </header>
+    <main>
+        <form>
+            <h2>Predicciones para el Gran Premio de [Nombre de la carrera]</h2>
+
+            <label for="lucas-primero">Primer puesto (Lucas):</label>
+            <input type="text" id="lucas-primero" placeholder="Ejemplo: Max Verstappen" required>
+
+            <label for="lucas-segundo">Segundo puesto (Lucas):</label>
+            <input type="text" id="lucas-segundo" placeholder="Ejemplo: Lewis Hamilton" required>
+
+            <label for="lucas-tercero">Tercer puesto (Lucas):</label>
+            <input type="text" id="lucas-tercero" placeholder="Ejemplo: Charles Leclerc" required>
+
+            <label for="lucas-vr">Vuelta rápida (Lucas):</label>
+            <input type="text" id="lucas-vr" placeholder="Ejemplo: Fernando Alonso" required>
+
+            <hr>
+
+            <label for="pablo-primero">Primer puesto (Pablo):</label>
+            <input type="text" id="pablo-primero" placeholder="Ejemplo: Max Verstappen" required>
+
+            <label for="pablo-segundo">Segundo puesto (Pablo):</label>
+            <input type="text" id="pablo-segundo" placeholder="Ejemplo: Lewis Hamilton" required>
+
+            <label for="pablo-tercero">Tercer puesto (Pablo):</label>
+            <input type="text" id="pablo-tercero" placeholder="Ejemplo: Charles Leclerc" required>
+
+            <label for="pablo-vr">Vuelta rápida (Pablo):</label>
+            <input type="text" id="pablo-vr" placeholder="Ejemplo: Fernando Alonso" required>
+
+            <button type="submit">Guardar Predicciones</button>
+        </form>
+        <a href="index.html">Volver al inicio</a>
+    </main>
+</body>
+</html>
