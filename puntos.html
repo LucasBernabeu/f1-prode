@@ -7,25 +7,69 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
+    <!-- Botón para abrir el menú lateral -->
+    <span id="menuBtn" onclick="openNav()">&#9776;</span>
+
+    <!-- Menú lateral -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Inicio</a>
+        <a href="puntos.html">Puntos</a>
+        <a href="#reglas">Reglas</a>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div id="main">
         <h1>Puntos - Prode F1 2025</h1>
-    </header>
-    <main>
-        <form id="puntajesForm">
-            <h2>Ingresar Puntajes</h2>
-            <fieldset>
-                <legend>Lucas</legend>
-                <label for="lucas">Puntajes de las 24 carreras (separados por coma):</label>
-                <input type="text" id="lucas" name="lucas" required>
-            </fieldset>
-            <fieldset>
-                <legend>Pablo</legend>
-                <label for="pablo">Puntajes de las 24 carreras (separados por coma):</label>
-                <input type="text" id="pablo" name="pablo" required>
-            </fieldset>
-            <button type="submit">Guardar Puntajes</button>
-        </form>
-    </main>
-    <script src="javascript/main.js"></script>
-</body>
-</html>
+
+        <!-- Tabla de puntajes -->
+        <table class="score-table">
+            <thead>
+                <tr>
+                    <th>Carrera</th>
+                    <th>Lucas</th>
+                    <th>Pablo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filas de carreras -->
+                <tr>
+                    <td>Gran Premio de Australia</td>
+                    <td><input type="number" id="lucasGP1" value="0"></td>
+                    <td><input type="number" id="pabloGP1" value="0"></td>
+                </tr>
+                <!-- Repite las filas anteriores para cada carrera -->
+                <!-- ... -->
+            </tbody>
+        </table>
+
+        <!-- Botón para guardar cambios -->
+        <button onclick="saveScores()">Guardar Puntajes</button>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Funciones para abrir y cerrar el menú lateral
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        // Función para guardar los puntajes
+        function saveScores() {
+            const scores = {
+                lucas: 0,
+                pablo: 0
+            };
+
+            // Sumar los puntajes de Lucas
+            for (let i = 1; i <= 24; i++) {
+                scores.lucas += parseInt(document.getElementById(`lucasGP${i}`).value) || 0;
+            }
+
+            // Sumar los puntajes de Pablo
+            for (let i = 1; i <=
+::contentReference[oaicite:0]{index=0}
+ 
