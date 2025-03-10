@@ -3,79 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prode F1 2025</title>
+    <title>F1 Prode 2025</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Botón para abrir el menú lateral -->
-    <span id="menuBtn" onclick="openNav()">&#9776;</span>
-
-    <!-- Menú lateral -->
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#calendario">Calendario</a>
-        <a href="#puntos">Puntos</a>
-        <a href="#reglas">Reglas</a>
-    </div>
+    <!-- Menú desplegable -->
+    <nav id="menu">
+        <ul>
+            <li><a href="calendario.html">Calendario</a></li>
+            <li><a href="puntos.html">Puntos</a></li>
+            <li><a href="reglas.html">Reglas</a></li>
+        </ul>
+    </nav>
 
     <!-- Contenido principal -->
     <div id="main">
-        <h1>Prode F1 2025</h1>
+        <h1>F1 Prode 2025</h1>
 
-        <!-- Tabla de puntajes -->
-        <table class="score-table">
-            <thead>
-                <tr>
-                    <th>Participante</th>
-                    <th>Puntaje</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Lucas</td>
-                    <td id="lucasScore">0</td>
-                </tr>
-                <tr>
-                    <td>Pablo</td>
-                    <td id="pabloScore">0</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <!-- Sección de próxima carrera -->
-        <div class="next-race">
-            <h2>Próxima Carrera</h2>
-            <p id="nextRaceInfo">Información no disponible</p>
+        <!-- Cuadrícula de carreras -->
+        <div class="grid-container">
+            <!-- Repite este bloque para cada una de las 24 carreras -->
+            <div class="race-card">
+                <h2>Carrera 1</h2>
+                <div class="podio">
+                    <h3>Podio Lucas</h3>
+                    <ol>
+                        <li>Piloto 1</li>
+                        <li>Piloto 2</li>
+                        <li>Piloto 3</li>
+                    </ol>
+                </div>
+                <div class="podio">
+                    <h3>Podio Pablo</h3>
+                    <ol>
+                        <li>Piloto 1</li>
+                        <li>Piloto 2</li>
+                        <li>Piloto 3</li>
+                    </ol>
+                </div>
+                <div class="podio">
+                    <h3>Podio Final</h3>
+                    <ol>
+                        <li>Piloto 1</li>
+                        <li>Piloto 2</li>
+                        <li>Piloto 3</li>
+                    </ol>
+                </div>
+                <div class="puntos">
+                    <p>Puntos Lucas: <span>0</span></p>
+                    <p>Puntos Pablo: <span>0</span></p>
+                </div>
+            </div>
+            <!-- Fin del bloque de carrera -->
         </div>
     </div>
 
     <!-- Scripts -->
-    <script>
-        // Funciones para abrir y cerrar el menú lateral
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-        }
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-        }
-
-        // Función para cargar los puntajes desde el archivo JSON
-        function loadScores() {
-            fetch('puntajes.json')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('lucasScore').textContent = data.lucas;
-                    document.getElementById('pabloScore').textContent = data.pablo;
-                })
-                .catch(error => {
-                    console.error('Error al cargar los puntajes:', error);
-                });
-        }
-
-        // Llamada a la función de carga al cargar la página
-        document.addEventListener('DOMContentLoaded', () => {
-            loadScores();
-        });
-    </script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
